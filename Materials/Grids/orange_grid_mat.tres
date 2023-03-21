@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://p1pa80kmxdwk"]
+
+[ext_resource type="Texture2D" uid="uid://be8lyqgtrp58w" path="res://Resources/Textures/Grids/Orange/texture_09.png" id="1_m122s"]
+
+[resource]
+albedo_texture = ExtResource("1_m122s")
+metallic = 1.0
+metallic_specular = 0.0
+uv1_scale = Vector3(0.8, 0.8, 0.8)
+uv1_triplanar = true
+texture_filter = 5

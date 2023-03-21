@@ -1,0 +1,210 @@
+[gd_scene load_steps=30 format=3 uid="uid://d5uylfl6388b"]
+
+[ext_resource type="Script" path="res://Player/character_controller.gd" id="1_veu5k"]
+[ext_resource type="AudioStream" uid="uid://bynj0q5svp4rj" path="res://Audios/Player/Flashlight/Click_1.mp3" id="2_mqmwb"]
+[ext_resource type="AudioStream" uid="uid://bxuyijbggpwnn" path="res://Audios/Player/Flashlight/Click_2.mp3" id="3_vsjol"]
+[ext_resource type="AudioStream" uid="uid://c6rkmboqkjtlt" path="res://Audios/Player/Flashlight/Click_3.mp3" id="4_gpr3t"]
+[ext_resource type="AudioStream" uid="uid://dlm3jeouy8hxy" path="res://Audios/Player/Flashlight/Click_4.mp3" id="5_4mrn4"]
+[ext_resource type="AudioStream" uid="uid://ctw54ou2c6kwk" path="res://Audios/Player/Flashlight/Click_5.mp3" id="6_503jd"]
+[ext_resource type="AudioStream" uid="uid://cg4j56t2lm2v3" path="res://Audios/Player/Flashlight/Click_6.mp3" id="7_x5pd8"]
+[ext_resource type="AudioStream" uid="uid://drr6ycqquf6yp" path="res://Audios/Player/Flashlight/Click_7.mp3" id="8_us82r"]
+[ext_resource type="AudioStream" uid="uid://b8omvn32tbvea" path="res://Audios/Player/Flashlight/Click_8.mp3" id="9_oa0nc"]
+[ext_resource type="AudioStream" uid="uid://dyu6htwcth2a5" path="res://Audios/Player/Flashlight/Click_9.mp3" id="10_h1qtw"]
+[ext_resource type="AudioStream" uid="uid://c3irxsa5j8yxw" path="res://Audios/Player/Flashlight/Click_10.mp3" id="11_g8mp7"]
+[ext_resource type="Script" path="res://Player/Camera/camera_holder.gd" id="12_kn5qc"]
+[ext_resource type="Script" path="res://Player/Camera/camera_tilt.gd" id="13_2w5d5"]
+[ext_resource type="Script" path="res://Player/Interact/interact_ray.gd" id="14_061lx"]
+[ext_resource type="Texture2D" uid="uid://dgb1vevbom387" path="res://Resources/Textures/Crosshairs/Dot.png" id="15_e8ni8"]
+[ext_resource type="Texture2D" uid="uid://i4clr3fenuoj" path="res://Resources/Textures/Crosshairs/Ring.png" id="16_mgph6"]
+[ext_resource type="Script" path="res://Player/Audios/player_audios.gd" id="17_bgoh0"]
+[ext_resource type="Resource" uid="uid://bvcwavmxm31su" path="res://Player/AudioInteracts/tile_audio_interact.tres" id="18_p2s6l"]
+[ext_resource type="PhysicsMaterial" uid="uid://c58wxv6h52gbn" path="res://Player/PhysicsMaterials/tile.tres" id="19_1dr0r"]
+[ext_resource type="PhysicsMaterial" uid="uid://t3o4mbgdvok8" path="res://Player/PhysicsMaterials/wood.tres" id="20_8h2bv"]
+[ext_resource type="PhysicsMaterial" uid="uid://bjrovvgawkb61" path="res://Player/PhysicsMaterials/carpet.tres" id="21_3kmyh"]
+[ext_resource type="Resource" uid="uid://rbpsfr4t5jcm" path="res://Player/AudioInteracts/wood_audio_interact.tres" id="22_vka2v"]
+[ext_resource type="Resource" path="res://Player/AudioInteracts/carpet_audio_interact.tres" id="23_uiwje"]
+[ext_resource type="AudioStream" uid="uid://tpf3n7p5bmqv" path="res://Audios/Player/Footsteps/Tile/Footsteps_Tile_Walk_01.wav" id="24_ejkjn"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/Pause_Menu.tscn" id="25_ftdnm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn1rj"]
+radius = 0.3
+
+[sub_resource type="Animation" id="Animation_tp1o3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_22uli"]
+resource_name = "walk_headbob"
+length = 0.56
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.32, 0.4, 0.56),
+"transitions": PackedFloat32Array(0.5, 2, 1, 2, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.03, 0), Vector3(0, 0, 0), Vector3(0, -0.015, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"_step"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rc1w4"]
+_data = {
+"RESET": SubResource("Animation_tp1o3"),
+"walk_headbob": SubResource("Animation_22uli")
+}
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+floor_block_on_wall = false
+floor_snap_length = 0.5
+script = ExtResource("1_veu5k")
+can_use_torch = false
+acceleration = 5.0
+deceleration = 8.0
+gravity_multiplier = 2.0
+click_audios = Array[AudioStream]([ExtResource("2_mqmwb"), ExtResource("3_vsjol"), ExtResource("4_gpr3t"), ExtResource("5_4mrn4"), ExtResource("6_503jd"), ExtResource("7_x5pd8"), ExtResource("8_us82r"), ExtResource("9_oa0nc"), ExtResource("10_h1qtw"), ExtResource("11_g8mp7")])
+torch_sway_speed = 8.0
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_fn1rj")
+
+[node name="CameraHolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+script = ExtResource("12_kn5qc")
+cam_path = NodePath("CameraTilt/MainCamera")
+
+[node name="CameraTilt" type="Node3D" parent="CameraHolder"]
+script = ExtResource("13_2w5d5")
+
+[node name="MainCamera" type="Camera3D" parent="CameraHolder/CameraTilt"]
+current = true
+fov = 70.0
+near = 0.01
+far = 100.0
+
+[node name="InteractRay" type="RayCast3D" parent="CameraHolder/CameraTilt"]
+target_position = Vector3(0, 0, -2)
+debug_shape_custom_color = Color(1, 0, 1, 1)
+script = ExtResource("14_061lx")
+
+[node name="Crosshairs" type="Control" parent="CameraHolder/CameraTilt/InteractRay"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dot" type="TextureRect" parent="CameraHolder/CameraTilt/InteractRay/Crosshairs"]
+modulate = Color(1, 1, 1, 0.3)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_e8ni8")
+expand_mode = 1
+
+[node name="Ring" type="TextureRect" parent="CameraHolder/CameraTilt/InteractRay/Crosshairs"]
+modulate = Color(1, 1, 1, 0.3)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_mgph6")
+expand_mode = 1
+
+[node name="TorchHolder" type="Node3D" parent="."]
+
+[node name="Torchloc" type="Node3D" parent="TorchHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="Torch" type="Node3D" parent="TorchHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+top_level = true
+
+[node name="TorchLight" type="SpotLight3D" parent="TorchHolder/Torch"]
+visible = false
+light_energy = 3.0
+shadow_enabled = true
+shadow_opacity = 0.8
+spot_range = 15.0
+spot_angle = 40.0
+spot_angle_attenuation = 2.0
+
+[node name="PlayerAudios" type="Node3D" parent="."]
+script = ExtResource("17_bgoh0")
+audio_interact = ExtResource("18_p2s6l")
+physic_materials = Array[PhysicsMaterial]([ExtResource("19_1dr0r"), ExtResource("20_8h2bv"), ExtResource("21_3kmyh")])
+audio_interacts = Array[Resource]([ExtResource("18_p2s6l"), ExtResource("22_vka2v"), ExtResource("23_uiwje")])
+
+[node name="TorchClickSfx" type="AudioStreamPlayer3D" parent="PlayerAudios"]
+volume_db = -23.0
+
+[node name="FootstepSfx" type="AudioStreamPlayer3D" parent="PlayerAudios"]
+stream = ExtResource("24_ejkjn")
+attenuation_filter_db = -65.0
+
+[node name="GroundCheck" type="RayCast3D" parent="PlayerAudios"]
+target_position = Vector3(0, -1.5, 0)
+debug_shape_custom_color = Color(1, 0, 1, 1)
+
+[node name="AnimationPlayers" type="Node" parent="."]
+
+[node name="HeadbobAnimation" type="AnimationPlayer" parent="AnimationPlayers"]
+root_node = NodePath("../../CameraHolder/CameraTilt/MainCamera")
+libraries = {
+"": SubResource("AnimationLibrary_rc1w4")
+}
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="TorchTimer" type="Timer" parent="Timers"]
+wait_time = 0.3
+one_shot = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("25_ftdnm")]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AudioInteract" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://Player/Audios/audio_interact.gd" id="1_a8c87"]
+[ext_resource type="AudioStream" uid="uid://b2m66pdwppxt0" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_01.wav" id="2_paefn"]
+[ext_resource type="AudioStream" uid="uid://c2q5hplwo20j5" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_02.wav" id="3_ncvv7"]
+[ext_resource type="AudioStream" uid="uid://ifmsxllyryfs" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_03.wav" id="4_0sysv"]
+[ext_resource type="AudioStream" uid="uid://c13ggxq7y8ja1" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_04.wav" id="5_i7ipu"]
+[ext_resource type="AudioStream" uid="uid://c04mmv5wui3hh" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_05.wav" id="6_s00vn"]
+[ext_resource type="AudioStream" uid="uid://cs01jc62xpoim" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_06.wav" id="7_iuqfh"]
+[ext_resource type="AudioStream" uid="uid://dgcm8f10pvhb" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_07.wav" id="8_fj3cg"]
+[ext_resource type="AudioStream" uid="uid://cxqygh6pflpp7" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_08.wav" id="9_ltdh7"]
+[ext_resource type="AudioStream" uid="uid://c5ssytrw56qr7" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_09.wav" id="10_84ryc"]
+[ext_resource type="AudioStream" uid="uid://cdln8ao70oux6" path="res://Audios/Player/Footsteps/Carpet/Footstep Carpet Walking 1_10.wav" id="11_lquf6"]
+
+[resource]
+script = ExtResource("1_a8c87")
+step_audios = Array[AudioStream]([ExtResource("2_paefn"), ExtResource("3_ncvv7"), ExtResource("4_0sysv"), ExtResource("5_i7ipu"), ExtResource("6_s00vn"), ExtResource("7_iuqfh"), ExtResource("8_fj3cg"), ExtResource("9_ltdh7"), ExtResource("10_84ryc"), ExtResource("11_lquf6")])

@@ -1,0 +1,3 @@
+node_modules/
+# Godot 4+ specific ignores
+.godot/

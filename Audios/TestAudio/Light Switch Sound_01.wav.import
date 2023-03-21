@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1iibm423ug6t"
+path="res://.godot/imported/Light Switch Sound_01.wav-641ce119c67c151e150fe2eadca1eafc.sample"
+
+[deps]
+
+source_file="res://Audios/TestAudio/Light Switch Sound_01.wav"
+dest_files=["res://.godot/imported/Light Switch Sound_01.wav-641ce119c67c151e150fe2eadca1eafc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://haf3yd48cmqg"
+path="res://.godot/imported/Item Pick up (Counter Strike Source) - Sound Effect for editing.wav-b1292ec21956609379d4102d31051fcb.sample"
+
+[deps]
+
+source_file="res://Audios/TestAudio/Item Pick up (Counter Strike Source) - Sound Effect for editing.wav"
+dest_files=["res://.godot/imported/Item Pick up (Counter Strike Source) - Sound Effect for editing.wav-b1292ec21956609379d4102d31051fcb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,18 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://pwcddenb16o3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_inbjd"]
+
+[sub_resource type="Sky" id="Sky_pvbtm"]
+sky_material = SubResource("ProceduralSkyMaterial_inbjd")
+
+[resource]
+background_mode = 2
+background_color = Color(0.15, 0.15, 0.15, 1)
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_pvbtm")
+tonemap_mode = 3
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.35

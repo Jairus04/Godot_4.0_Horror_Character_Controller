@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AudioInteract" load_steps=8 format=3 uid="uid://bvcwavmxm31su"]
+
+[ext_resource type="Script" path="res://Player/Audios/audio_interact.gd" id="1_vinqn"]
+[ext_resource type="AudioStream" uid="uid://s81rgjmy2hww" path="res://Audios/Player/Footsteps/Tile/Footsteps_Tile_Walk_03.wav" id="4_jn56m"]
+[ext_resource type="AudioStream" uid="uid://cfm3utuaem8d1" path="res://Audios/Player/Footsteps/Tile/Footsteps_Tile_Walk_04.wav" id="5_r5rjp"]
+[ext_resource type="AudioStream" uid="uid://dr3a4pri3g2y0" path="res://Audios/Player/Footsteps/Tile/Footsteps_Tile_Walk_05.wav" id="6_2hnsa"]
+[ext_resource type="AudioStream" uid="uid://cayvanokc1a7k" path="res://Audios/Player/Footsteps/Tile/Footsteps_Tile_Walk_06.wav" id="7_eua1r"]
+[ext_resource type="AudioStream" uid="uid://b7egysuo5q2oq" path="res://Audios/Player/Footsteps/Tile/Footsteps_Tile_Walk_07.wav" id="8_dnkep"]
+[ext_resource type="AudioStream" uid="uid://caib7p3bkk52r" path="res://Audios/Player/Footsteps/Tile/Footsteps_Tile_Walk_08.wav" id="9_o8ltg"]
+
+[resource]
+script = ExtResource("1_vinqn")
+step_audios = Array[AudioStream]([ExtResource("4_jn56m"), ExtResource("5_r5rjp"), ExtResource("6_2hnsa"), ExtResource("7_eua1r"), ExtResource("8_dnkep"), ExtResource("9_o8ltg")])
