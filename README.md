@@ -2,4 +2,4 @@
 
 A Simple character Controller for Horror Games
 
-note : this project is under development and expect to see some spaghetti
+note : this project is under development and expect to see some spaghetti code 😅
